@@ -12,9 +12,49 @@ body {
   line-height: 1.5;
 }
 
+p{
+  margin: 0;
+}
+
+
 #search-box {
   font: inherit;
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+}
+
+.country-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.country-item{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.country-item-name{
+  font-size: 20px;
+}
+
+.country-name{
+  font-size: 30px;
+}
+.country-flag{   
+    margin-right: 15px;
+    height: 100%;  
+}
+
+
+.country-name-wrap{
+  display: flex;
+  align-items: center;
+}
+
+.country-info-detail{
+  margin-bottom: 8px;
+  font-size: 25px;
 }
