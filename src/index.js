@@ -24,6 +24,7 @@ function onSearchBoxInput({ target }) {
 function onError(err) {
   updateMarkup(countriesListContainer);
   updateMarkup(countryCardContainer);
+  console.log(err);
   Notify.failure('Oops, there is no country with that name');
 }
 
