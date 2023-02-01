@@ -8,7 +8,9 @@ const searchBox = document.getElementById('search-box');
 const countriesListContainer = document.querySelector('.country-list');
 const countryCardContainer = document.querySelector('.country-info');
 const debouncedFetch = debounce(onSearchBoxInput, DEBOUNCE_DELAY);
-
+const notifyOptions = {
+  position: 'center-top',
+};
 searchBox.addEventListener('input', debounce(onSearchBoxInput, DEBOUNCE_DELAY));
 
 function onSearchBoxInput({ target }) {
@@ -24,7 +26,7 @@ function onSearchBoxInput({ target }) {
 function onError(err) {
   updateMarkup(countriesListContainer);
   updateMarkup(countryCardContainer);
-  Notify.failure('Oops, there is no country with that name');
+  Notify.failure('Oops, there is no country with that name', notifyOptions);
 }
 
 function updateMarkup(element, markup = '') {
@@ -36,7 +38,10 @@ function renderMarkup(countries) {
   if (amountOfCountries > 10) {
     updateMarkup(countriesListContainer);
     updateMarkup(countryCardContainer);
-    Notify.info('Too many matches found. Please enter a more specific name.');
+    Notify.info(
+      'Too many matches found. Please enter a more specific name.',
+      notifyOptions
+    );
   } else if (amountOfCountries === 1) {
     updateMarkup(countriesListContainer);
     const markup = createCountryCard(countries[0]);
