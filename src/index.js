@@ -44,7 +44,7 @@ function renderMarkup(countries) {
     updateMarkup(countryCardContainer, markup);
   } else if (amountOfCountries > 1 && amountOfCountries <= 10) {
     updateMarkup(countryCardContainer);
-    markup = countries.reduce(
+    const markup = countries.reduce(
       (listMarkup, country) => listMarkup + createMarkupOfList(country),
       ''
     );
